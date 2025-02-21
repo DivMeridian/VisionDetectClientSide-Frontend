@@ -34,7 +34,7 @@ function ContactUs({ onClose }) {
  
     // Handle form submission
     const handleSubmit = async (e) => {
-        const backendUrl = "https://visiondetectclientside-backend-d8ezgkaregg4ascv.centralindia-01.azurewebsites.net";
+        const backendUrl = "https://visiondetectclientside-backend-d8ezgkaregg4ascv.centralindia-01.azurewebsites.net/send-contact/";
         // const backendUrl = `${import.meta.env.VITE_BACKEND}/send-contact/`;
         e.preventDefault();
         setLoader(true)
