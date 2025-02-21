@@ -74,7 +74,7 @@ function FaceRegistration() {
       return; // Stop form submission
     }
 
-    const backendUrl = import.meta.env.VITE_BACKEND;
+    const backendURI = import.meta.env.VITE_BACKEND;
     // const backendUrl = `${import.meta.env.VITE_BACKEND}/register`;
     const formData = new FormData();
     
