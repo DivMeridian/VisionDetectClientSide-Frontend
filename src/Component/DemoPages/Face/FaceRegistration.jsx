@@ -73,9 +73,9 @@ function FaceRegistration() {
       toast.error('Please upload or capture a profile photo.');
       return; // Stop form submission
     }
-  
 
-    const backendUrl = `${import.meta.env.VITE_BACKEND}/register`;
+    const backendUrl = import.meta.env.VITE_BACKEND;
+    // const backendUrl = `${import.meta.env.VITE_BACKEND}/register`;
     const formData = new FormData();
     
 
@@ -94,7 +94,7 @@ function FaceRegistration() {
     setLoading(true); // Show loading animation
 
     try {
-      const response = await axios.post(backendUrl, formData, {
+      const response = await axios.post(`${backendURI}/register`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
