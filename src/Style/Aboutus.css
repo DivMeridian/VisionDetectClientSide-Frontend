@@ -1,0 +1,171 @@
+/* ------------------------ */
+/* About Us Container Styles */
+/* ------------------------ */
+.aboutus-container {
+  position: relative;
+  width: 100%;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  background-color: white;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-out, visibility 1s ease-out;
+}
+
+/* When the animation triggers, show the content */
+.show-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Add margin-bottom when the video is paused */
+.paused-margin {
+  margin-bottom: -7rem;
+  animation: slideUpMargin 0.5s ease-out;
+}
+
+/* Keyframes for sliding up the margin */
+@keyframes slideUpMargin {
+  0% {
+    margin-bottom: 0;
+  }
+  100% {
+    margin-bottom: -11rem;
+  }
+}
+
+/* ----------------------------- */
+/* Section 1: Heading and Details */
+/* ----------------------------- */
+.aboutus-heading-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 0 3rem;
+  position: relative;
+}
+
+.aboutus-heading {
+  font-size: 3.7rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#camtext{
+  font-weight: 100;
+}
+
+/* Typing text styling */
+.aboutus-typing {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #000;
+}
+
+.no-overflow {
+  overflow: visible !important;
+}
+
+/* Strike-through animation applied to the first text once done */
+.animate-strike::after {
+  content: "";
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  width: 0px;
+  height: 3px;
+  background-color: blue;
+  animation: strike 0.8s forwards ease-in-out;
+}
+
+@keyframes strike {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.aboutus-description {
+  margin: 1rem 0;
+  color: black;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 48px;
+}
+
+/* ------------------------ */
+/* Section 2: Video & Buttons */
+/* ------------------------ */
+.aboutus-video-section {
+  position: relative;
+  display: flex;
+  margin-top: -10rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutus-video {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons container positioned over the video */
+.aboutus-buttons {
+  position: absolute;
+  display: flex;
+  margin-top: -5rem;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutus-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 40px;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  background-color: black;
+  border: 2px solid transparent;
+  border-radius: 85.5px;
+  background: linear-gradient(black, black) padding-box,
+    conic-gradient(from var(--bg-angle), #133AFF 0%, #EB0FB1 31%, #09DCEC 100%)
+      border-box;
+  animation: spin 3s linear infinite !important;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* CSS property for dynamic background angle */
+@property --bg-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes spin {
+  to {
+    --bg-angle: 360deg;
+  }
+}
+
+.aboutus-button:hover {
+  background-color: black;
+  color: white;
+}

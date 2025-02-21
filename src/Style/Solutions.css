@@ -1,0 +1,264 @@
+ .solution-section {
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+ 
+.section-heading {
+  text-align: center;
+  font-size: 60px;
+  position: relative;
+  margin: 1rem 0rem 1rem 0rem;
+}
+ 
+.section {
+  margin-bottom: 60px;
+}
+ 
+.section-boxes {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+}
+ 
+.bio-text {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+  color: #444;
+}
+ 
+.box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0; /* Default visible state */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: none; /* No animation initially */
+}
+ 
+/* Animation for the slide-up effect */
+@keyframes slideUp {
+  0% {
+    transform: translateY(50px); /* Start below the section */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); /* End at the normal position */
+    opacity: 1;
+  }
+}
+ 
+/* Trigger animation when the box is visible */
+.box.visible {
+  opacity: 1;
+  animation: slideUp 0.5s ease-out forwards; /* Apply slide-up animation */
+}
+ 
+/* Ensure the box remains visible after animation completion */
+.box.static-visible {
+  opacity: 1; /* Maintain opacity after animation */
+  animation: none; /* No further animation */
+}
+ 
+/* Modify opacity based on popup state */
+.box.hidden {
+  opacity: 0; /* Hide box when popup is open */
+}
+ 
+ 
+.video-box {
+  width: 100%;
+  border-radius: 1rem;
+  height: 300px;
+  overflow: hidden;
+}
+ 
+.video-heading {
+  margin: 1rem 0rem 0.5rem 0rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+ 
+.video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+ 
+/* Request a Demo Button */
+.try-now-btn {
+  margin: 1rem 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 40px;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  background-color: black;
+  border: 2px solid transparent;
+  border-radius: 85.5px;
+  background:
+  linear-gradient(black, black) padding-box,
+  conic-gradient(from var(--bg-angle), #133AFF 0%, #EB0FB1 31%, #09DCEC 100%) border-box;
+  animation: spin 3s linear infinite, heartbeat 1.5s infinite !important;
+  cursor: pointer;
+  z-index: 1;
+  /* animation: heartbeat 1.5s infinite, gradient-border 3s linear infinite, fadeIn 1s ease-out forwards; */
+}
+
+/* .heartbeat {
+  animation: heartbeat 1.5s infinite !important;
+} */
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1); /* Normal size */
+  }
+  30% {
+    transform: scale(1.05); /* Slightly bigger */
+  }
+  60% {
+    transform: scale(1); /* Back to normal size */
+  }
+  100% {
+    transform: scale(1); /* End with normal size */
+  }
+}
+
+ 
+@property --bg-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+ 
+@keyframes spin {
+  to {
+      --bg-angle: 360deg;
+  }
+}
+ 
+#try-btn{
+  width: 13%;
+}
+ 
+/* Keyframes for smooth popup animation */
+@keyframes popupOpenAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.9); /* Start slightly smaller */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1); /* Scale back to normal size */
+  }
+}
+ 
+/* Initial state of the popup */
+.popup-section {
+  opacity: 0;
+  transform: scale(0.9); /* Start slightly smaller */
+  animation: none; /* No animation initially */
+}
+ 
+/* When the popup is open, apply the animation */
+.popup-section.popup-open {
+  opacity: 1;
+  transform: scale(1);
+  animation: popupOpenAnimation 0.3s ease-in-out; /* Smooth opening animation */
+}
+ 
+.popup-content {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+ 
+.popup-video {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 20px; /* Add space below the video */
+}
+ 
+.popup-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 11px 11px 2rem 2rem;
+}
+ 
+.popup-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0rem 1rem 2rem;
+  width: 95%;
+}
+ 
+.popup-heading {
+  font-size: 37px;
+  padding: 0px;
+  margin: 0px;
+  text-align: left;
+}
+ 
+.popup-bio {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  width: 90%;
+  text-align: left;
+}
+ 
+.popup-try-btn {
+  padding: 12px 30px;
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 20%;
+}
+ 
+.popup-try-btn:hover {
+  background-color: #444;
+}
+ 
+.popup-close-btn {
+  position: relative;
+  top: -29rem;
+  right: -78rem;
+  width: 40px; /* Make the button circular */
+  height: 40px; /* Match width and height for a circle */
+  background-color: white; /* White background for the button */
+  color: black; /* Black cross icon */
+  font-size: 20px; /* Adjust the size of the cross icon */
+  font-weight: bold; /* Make the cross bold */
+  border: none; /* Remove the border */
+  border-radius: 50%; /* Make it circular */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  display: flex; /* Center the cross icon */
+  justify-content: center; /* Center the cross icon */
+  align-items: center; /* Center the cross icon */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+ 
+.popup-close-btn:hover {
+  background-color: #444; /* Change background to dark grey on hover */
+  color: white; /* Change the cross color to white on hover */
+}
+ 
+ 

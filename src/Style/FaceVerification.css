@@ -1,0 +1,327 @@
+/* Page Animation */
+.page-animate {
+  animation: bottomToTop 1s ease-out forwards;
+  background-color: white;
+}
+
+@keyframes bottomToTop {
+  from {
+    opacity: 0;
+    transform: translateY(100px); /* Start further below the viewport */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End at its original position */
+  }
+}
+
+/* Other CSS remains the same */
+
+
+.face-verification {
+    padding: 0;
+  }
+  
+  .hero-section {
+    position: relative;
+    width: 100%;
+    background-color: white;
+    height: 60vh;
+    border-radius: 0rem 0rem 1.3rem 1rem;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* object-position: bottom; */
+  }
+
+  .hero-video2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position:top;
+  }
+
+/*   
+  .video-background{
+    object-fit: cover;
+  }
+   */
+  .content-section {
+    display: flex;
+    padding: 1rem 1rem 0rem 1rem;
+    align-items: center;
+    gap: 3rem;
+  }
+  
+  .content-left h1 {
+    font-size: 32px;
+  }
+  
+.action-btn {
+  /* position: absolute; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 40px;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  background-color: black;
+  border: 2px solid transparent;
+  border-radius: 85.5px;
+  background:
+    linear-gradient(black, black) padding-box,
+    conic-gradient(from var(--bg-angle), #133AFF 0%, #EB0FB1 31%, #09DCEC 100%) border-box;
+  animation: spin 3s linear infinite !important;
+  cursor: pointer;
+}
+
+@property --bg-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* Fade-in animation for the button */
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Slightly move up */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  .solutions-list {
+    margin: 0;
+    padding: 0rem 1rem 0rem 1rem;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+  }
+  
+  .solution-btn {
+    position: relative;
+    display: inline-block;
+    background-color: white; /* Button background color */
+    color: black; /* Text color */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none; /* Remove the default border */
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    z-index: 1;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .solution-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, #133AFF, #EB0FB1, #09DCEC);
+    border-radius: 20px;
+    padding: 1px; /* Controls the border thickness */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+  
+  .solutions-list h2 {
+    margin-bottom: 15px;
+  }
+  
+  .solutions-list ul {
+    list-style: none;
+    padding: 1rem 0rem 1rem 0rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+  
+  .solution-paragraph {
+    margin: 1rem 1rem 0rem 1rem;
+    text-align: center;
+    color: black;
+    font-size: 22px;
+    line-height: 1.8;
+  }
+  
+
+  .back-arrow {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 10; /* Ensure it stays above other content */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .back-arrow:hover {
+    background-color: #333;
+    transform: scale(1.1);
+  }
+  
+  
+  /* Importance Section */
+.importance-section {
+  margin: 4rem 13rem;
+}
+
+.importance-section h2 {
+  font-size: 28px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.importance-section ul {
+  list-style: none;
+  margin: 2rem 0rem 0rem 0rem;
+  line-height: 2.6;
+}
+
+.importance-section li {
+  margin-bottom: 0.5rem;
+}
+
+/* How it Works Section */
+.how-it-works {
+  margin: 2rem 1rem;
+  text-align: center;
+}
+
+.how-it-works h2 {
+  font-size: 28px;
+  margin-bottom: 1rem;
+}
+
+.how-it-works-steps {
+  display: flex;
+  justify-content: center;
+  gap: 10rem;
+  margin: 4rem 0rem 4rem 0rem;
+}
+
+.step {
+  text-align: center;
+  width: 270px;
+  line-height: 30px;
+}
+
+.step img {
+  width: 100%;
+  max-width: 150px;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Applications Section */
+.applications-section {
+  margin: 2rem 1rem;
+  text-align: center;
+}
+
+.applications-section h2 {
+  font-size: 28px;
+  margin-bottom: 1rem;
+}
+
+.applications-list {
+  padding: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+.applications-list li {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+  line-height: 2.6;
+}
+
+#face{
+  width: 50rem;
+}
+
+#pargrph {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 600;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+#helmet-pargrph{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  font-weight: 200;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+#wrk{
+  width: 57rem;
+}
+
+#list{    
+text-align: left;
+line-height: 50px;
+}
+
+.step_item {
+  opacity: 0; /* Hidden initially */
+  transform: translateY(20px); /* Start slightly lower */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth animation */
+}
+
+.step_item.visible {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Move to original position */
+}
+
+/* Adding delay for each step */
+.step_item:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.step_item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.step_item:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+.step_item:nth-child(4) {
+  transition-delay: 0.6s;
+}
+

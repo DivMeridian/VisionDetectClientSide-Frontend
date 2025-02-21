@@ -1,0 +1,367 @@
+/* General Whole Section */
+.whole-section {
+  transition: transform 2s ease; /* Smooth transition for zoom effect */
+  font-family: 'Poppins', sans-serif;
+}
+
+.Video-changer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  margin: 2rem 0rem 2rem 0rem;
+  text-align: center;
+}
+
+.video-btn {
+  color: black;
+  border: none;
+  background: white;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.video-btn:hover {
+  color: #45a049;
+  transform: scale(1.05); /* Slight scale up effect on hover */
+}
+
+.video-btn:focus {
+  outline: none;
+}
+
+.image {
+  width: 100%;
+  max-width: 7rem;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.image:hover {
+  transform: scale(1.08);
+}
+
+/* Zoom-Out Effect for Whole Section */
+.zoom-out {
+  animation: wholeSectionZoomOut 2s ease forwards;
+}
+
+/* Zoom-In Effect for Whole Section */
+.zoom-in {
+  animation: wholeSectionZoomIn 2s ease forwards;
+}
+
+/* Keyframes for Whole Section Zoom-Out */
+@keyframes wholeSectionZoomOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+/* Keyframes for Whole Section Zoom-In */
+@keyframes wholeSectionZoomIn {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Zoom Section Styling */
+.zoom-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  /* overflow: hidden; */
+}
+
+/* Video Styling */
+.zoom-video {
+  width: 100%;
+  max-width: 100%; /* Ensure the video doesn't overflow */
+  height: 38rem;
+  border-radius: 3.5rem;
+  object-fit: cover; /* Ensure video scales correctly */
+  animation: none; /* Prevent animation conflict */
+}
+
+
+.bordered-video {
+  border: 2rem solid black;
+  transition: border 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+}
+
+/* Video Zoom-Out Effect */
+.zoom-out .zoom-video {
+  animation: videoZoomOut 2s ease forwards; /* Smaller during section zoom-out */
+}
+
+/* Video Zoom-In Effect */
+.zoom-in .zoom-video {
+  animation: videoZoomIn 2s ease forwards; /* Back to normal during section zoom-in */
+}
+
+/* Keyframes for Video Zoom-Out */
+@keyframes videoZoomOut {
+  0% {
+    width: 100%;
+    height: auto;
+    transform: scale(1);
+  }
+  100% {
+    width: 70%; /* Increase the width */
+    height: 90%; /* Increase the height */
+    transform: scale(1.2);
+  }
+}
+
+/* Keyframes for Video Zoom-In */
+@keyframes videoZoomIn {
+  0% {
+    width: 80%; /* Start smaller */
+    transform: scale(0.8);
+  }
+  100% {
+    width: 100%; /* Reset to full size */
+    transform: scale(1);
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .whole-section {
+    padding: 1rem;
+  }
+
+  .zoom-video {
+    width: 90%;
+    height: auto;
+  }
+}
+
+.videobottom-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #1f2937;
+  font-size: 2.9rem;
+  font-weight: bold; /* Bold text */
+}
+
+/* General Button Styling */
+.videobottom-btn {
+  font-family: Poppins, sans-serif;
+  margin: 2rem auto;
+  padding: 9px 3rem;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-align: center;
+  display: block;
+  transition: transform 0.3s ease; /* Smooth hover scaling */
+  width: auto; /* Ensure the width adjusts based on content */
+  animation: heartbeat 1.5s infinite, gradient-border 3s linear infinite;
+}
+
+/* Gradient Border */
+.videobottom-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #133AFF, #EB0FB1, #09DCEC);
+  background-size: 300%;
+  z-index: -1;
+  box-sizing: border-box;
+  padding: 2px;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  animation: gradient-border 3s linear infinite;
+}
+
+
+.videobottom-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Request a Demo Button */
+.request-demo-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 40px;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  background-color: black;
+  border: 2px solid transparent;
+  border-radius: 85.5px;
+  background:
+    linear-gradient(black, black) padding-box,
+    conic-gradient(from var(--bg-angle), #133AFF 0%, #EB0FB1 31%, #09DCEC 100%) border-box;
+  animation: spin 3s linear infinite !important;
+  cursor: pointer;
+}
+
+/* Fade-in animation for the button */
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Slightly move up */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@property --bg-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes spin {
+  to {
+      --bg-angle: 360deg;
+  }
+}
+
+h4 {
+  padding: 0;
+  margin: 1rem 0 1rem 0; /* Top, Right, Bottom, Left */
+}
+
+/* General Button Styling */
+.gradient-btn {
+  font-family: Poppins, sans-serif;
+  margin: 2rem auto;
+  padding: 9px 3rem;
+  font-size: 32px;
+  font-weight: 600;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-align: center;
+  display: block;
+  transition: transform 0.3s ease; /* Smooth hover scaling */
+  width: auto; /* Ensure the width adjusts based on content */
+  min-width: 350px; /* Set a minimum width for better layout */
+  animation: heartbeat 1.5s infinite, gradient-border 3s linear infinite, fadeIn 1s ease-out forwards;
+}
+
+/* Gradient Border */
+.gradient-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #133AFF, #EB0FB1, #09DCEC);
+  background-size: 300%;
+  z-index: -1;
+  box-sizing: border-box;
+  padding: 2px;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  animation: gradient-border 3s linear infinite;
+}
+
+/* Right Arrow after the button text */
+.gradient-btn::after {
+  content: ' →';
+  font-size: 2.5rem; /* Size of the arrow */
+  margin-left: 10px; /* Space between text and the arrow */
+  transition: margin-left 0.3s ease;
+  color: blue; /* Set arrow color to blue */
+}
+
+/* Blue Text Styling */
+.blue-text {
+  color: blue;
+}
+
+/* Pulse Animation */
+.heartbeat {
+  animation: heartbeat 1.5s infinite !important;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1); /* Normal size */
+  }
+  30% {
+    transform: scale(1.05); /* Slightly bigger */
+  }
+  60% {
+    transform: scale(1); /* Back to normal size */
+  }
+  100% {
+    transform: scale(1); /* End with normal size */
+  }
+}
+
+/* Gradient Border Animation */
+@keyframes gradient-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Fade-in Animation */
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Slightly move up */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Back to original position */
+  }
+}
+
+/* Hover Effect */
+.gradient-btn:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}

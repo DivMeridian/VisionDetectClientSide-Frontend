@@ -1,0 +1,237 @@
+/* Section Container */
+.vision_detect_section {
+    padding: 2rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Heading Section */
+  .vision_detect_heading_section {
+    margin-bottom: 2rem;
+    font-size: 96px;
+  }
+  
+  .vision_detect_title {
+    font-size: 96px;
+    font-weight: bold;
+    color: black;
+    margin: 0rem 0rem 5rem 0rem;
+  }
+  
+ 
+
+  
+  /* Boxes Container */
+  .vision_detect_boxes {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+  }
+  
+  .vision_detect_box {
+    flex: 1;
+    max-width: 300px;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+   
+  .vision_detect_image {
+    width: 100%;
+    height: 13rem;
+    margin-bottom: 1rem;
+  }
+  
+  .vision_detect_box_title {
+    font-size: 30px;
+    color: #007bff; /* Blue color for heading */
+    margin-top: 0.5rem;
+  }
+  
+/* Base Styling */
+.top_features_section{
+  color: #fff;
+  position: relative;
+  background-color: black;
+  text-align: center;
+  z-index: 999;
+  padding: 0rem 1rem;
+  border-radius: 3rem 3rem 0rem 0rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.top_features_text_section {
+    padding: 5rem 0 3rem;
+}
+
+.top_features_step_box h1 {
+    font-size: 96px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Grid Styling */
+.top_features_grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap; /* Allows items to wrap when necessary */
+    width: 100%;  /* Ensures the grid spans the entire container */
+}
+
+/* Specific Row Styling */
+.first_row {
+    flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+.second_row {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Feature Box Styling */
+.top_features_step_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1 1 250px;  /* Ensures the boxes take equal space, with a minimum width of 250px */
+    padding: 1rem;
+}
+
+.top_features_step_title {
+    font-family: Poppins, sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+}
+
+
+/* Section: Centralized Text with Gradient */
+.center_text_container {
+  z-index: 2;
+  position: relative;
+  font-size: 50px !important;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 auto;
+  padding: 5rem 0rem 0rem 0rem;
+}
+
+.center_text {
+  font-size: 40px ;
+  font-weight: 600;
+  color: black;
+  line-height: 70px;
+  text-align: center;
+  padding: 4rem 0rem 0rem 0rem;
+}
+
+.gradient_circle {
+  position: absolute;
+  right: 0px;
+  margin-top: -45rem;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(19, 58, 255, 0.4), rgba(235, 15, 177, 0.3), rgba(9, 220, 236, 0.2));
+  filter: blur(100px); /* Adds blurriness */
+  border-radius: 50%;
+}
+
+/* Custom CSS for blue text */
+.highlight-blue {
+  color: #133AFF; /* Blue color */
+}
+
+/* Section: CEO Details */
+.ceo_section {
+  text-align: center;
+  padding: 2rem;
+}
+
+.ceo_content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ceo_name {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.ceo_title {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 1.5rem;
+  color: gray;
+}
+
+
+.request_demo_btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 40px;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  background-color: black;
+  border: 2px solid transparent;
+  border-radius: 85.5px;
+  background:
+  linear-gradient(black, black) padding-box,
+  conic-gradient(from var(--bg-angle), #133AFF 0%, #EB0FB1 31%, #09DCEC 100%) border-box;
+  animation: spin 3s linear infinite, heartbeat 1.5s infinite !important;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+}
+
+/*  
+.heartbeat {
+  animation: heartbeat 1.5s infinite !important;
+} */
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1); /* Normal size */
+  }
+  30% {
+    transform: scale(1.05); /* Slightly bigger */
+  }
+  60% {
+    transform: scale(1); /* Back to normal size */
+  }
+  100% {
+    transform: scale(1); /* End with normal size */
+  }
+}
+
+
+@property --bg-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes spin {
+  to {
+      --bg-angle: 360deg;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .top_features{
+        display: none;
+    }
+}
+
+

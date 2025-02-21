@@ -1,0 +1,132 @@
+/* Overlay - Full-Screen */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Dimmed background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s ease; /* Smooth fade-in effect */
+  z-index: 1000; /* Ensures the popup stays above all content */
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Popup Content */
+
+.popup {
+  background: white;
+  width: 80%;
+  height: 70%;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: none;
+  text-align: center;
+  position: relative;
+  animation: slideIn 0.5s ease;
+  overflow: hidden;
+}
+
+/* Close Button */
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: black;
+  border-radius: 50%; /* Circular close button */
+  color: white;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Popup Options */
+.popup-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  margin: 70px 0;
+}
+
+.option {
+  text-align: center;
+  flex: 1 1 100px; /* Allow the options to flex dynamically */
+  max-width: 120px; /* Restrict the maximum width */
+}
+
+.option img {
+  width: 100px; /* Larger images for better visibility */
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+
+/* Option Text */
+.option p {
+  font-size: 1.1rem;
+  width: 19rem;
+  margin: 0rem 0rem 0rem -5rem;
+  font-weight: 500;
+}
+
+/* Continue Button */
+.popup-continue-btn {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Smooth scaling on hover */
+}
+
+.popup-continue-btn:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .popup {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+
+  .option img {
+    width: 80px; /* Adjust image size for smaller screens */
+    height: 80px;
+  }
+
+  .popup-options {
+    gap: 10px; /* Reduce gap for smaller screens */
+  }
+}

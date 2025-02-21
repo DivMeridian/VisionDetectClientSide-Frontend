@@ -1,0 +1,387 @@
+/* Navbar Styles */
+.navbar {
+
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 3rem;
+  background-color: white;
+  /* color: black; */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-size: 36px;
+  font-weight: 600;
+  /* color: black; */
+}
+
+.navbar-left {
+  flex: 1;
+  animation: waveEffect 0.6s ease-in-out forwards;
+  animation-delay: 0.6s;
+  opacity: 0; /* Start hidden */
+}
+
+/* Base button style */
+.btn-shine {
+  position: relative;
+  display: inline-block;
+  font-size: 36px;
+  font-weight: 600;
+  text-decoration: none;
+  /* color: black;             Base text color */
+  overflow: hidden;         /* Hide the overlay when it moves outside */
+}
+
+/* Base text layer remains black */
+.btn-shine-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* Overlay text layer with animated silver shine */
+.btn-shine-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  /* Create a silver gradient that goes from transparent to silver to transparent */
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(192,192,192,1) 50%,
+    transparent 100%
+  );
+  background-size: 200%;
+  /* Clip the background to the shape of the text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Make the text transparent so only the background gradient shows */
+  -webkit-text-fill-color: transparent;
+  animation: shine-proctor 4s infinite ease-in-out;
+}
+
+/* Keyframes for the silver shine animation */
+@keyframes shine-proctor {
+  0% {
+    background-position: 150%;
+  }
+  100% {
+    background-position: -50%;
+  }
+}
+
+
+.navbar-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-links {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links li {
+  font-size: 16px;
+}
+
+#blue li a {
+  color: #133AFF;
+}
+
+.navbar-links li a {
+  /* color: black; */
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: background-color 0.3s;
+  position: relative; /* To position the underline with respect to the link */
+}
+
+.hello a{
+  color: #133AFF;
+
+}
+
+.navbar-links li a:hover {
+  text-decoration: none; /* Remove default underline */
+  border-bottom: 2px solid black; /* Add a thick underline */
+  padding-bottom: 5px; /* Add space between the text and the underline */
+}
+
+.navbar-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Button Styles */
+.explore-button {
+  position: relative;
+  display: inline-block;
+  background-color: white; /* Button background color */
+  color: black; /* Text color */
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none; /* Remove the default border */
+  border-radius: 12rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  z-index: 1;
+  animation: waveEffect 0.6s ease-in-out forwards;
+  animation-delay: 1.2s;
+  opacity: 0; /* Start hidden */
+}
+
+.explore-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, #133AFF, #EB0FB1, #09DCEC);
+  border-radius: 30px;
+  padding: 1px; /* Controls the border thickness */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.explore-button:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Contact Info Styles */
+.contact-info {
+  margin-top: 5.5rem;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.425);
+  text-align: center;
+  background-color: #f8f8f8;
+  padding: 0.1px;
+  border-radius: 0rem 0rem 3rem 3rem;
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-info p{
+  padding: 0.8rem 0rem;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  position: absolute;
+  transform: translateX(-50%);
+  top: 30px;
+  background:rgb(255, 255, 255)!important;
+  backdrop-filter: blur(20px) !important;
+  will-change: backdrop-filter;
+  box-shadow: 4px 4px 10px rgba(217, 217, 217, 0.60);
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  display: flex;
+  gap: 20px;
+  padding: 0.3rem 20px;
+  z-index: 1000;
+  width: 690px;
+}
+
+
+.dropdown-image {
+  width: 17rem;
+  height: 13rem;
+}
+
+/* Left and Right Sections */
+.dropdown-left,
+.dropdown-right {
+  flex: 1;
+}
+
+/* Left Section */
+.dropdown-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-left ul li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  /* color: black; */
+}
+
+.colorBlue{
+  color: #133AFF;
+
+}
+
+.dropdown-left ul li.blue-text {
+  /* color: #133AFF; */
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Right Section */
+.dropdown-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-right ul li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  /* color: black; */
+}
+
+.dropdown-right ul li.blue-text {
+  /* color: #133AFF; */
+  font-weight: bold;
+}
+
+/* Divider (if needed) */
+.dropdown-divider {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 15px 0;
+}
+
+/* Add spacing and alignment to ensure balanced structure */
+.dropdown-right {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px 0px 0px 30px;
+}
+
+/* Hover Effect for List Items */
+.dropdown-left ul li:hover,
+.dropdown-right ul li:hover {
+  /* color: #133AFF; */
+  cursor: pointer;
+}
+
+/* Dropdown Links Styling */
+.dropdown-left ul li a,
+.dropdown-right ul li a {
+  /* color: black; Default text color */
+  text-decoration: none; /* Remove underline */
+  padding: 0; /* Remove any default padding */
+  display: inline-block; /* Ensures proper spacing */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+/* Hover Effect for Links */
+.dropdown-left ul li a:hover,
+.dropdown-right ul li a:hover {
+  /* color: #133AFF; Change text color to blue on hover */
+  text-decoration: underline; /* Optional: Add underline on hover */
+}
+
+/* Override Global Hover Styles */
+.navbar-links li a:hover {
+  text-decoration: none; /* Remove global underline */
+  border-bottom: none; /* Prevent thick underline from appearing */
+  padding-bottom: 0; /* Prevent extra space under the text */
+}
+
+/* Dropdown List Item Styling */
+.dropdown-left ul li,
+.dropdown-right ul li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Fix Blue Text for Specific Links */
+.dropdown-left ul li.blue-text a,
+.dropdown-right ul li.blue-text a {
+  /* color: #133AFF; Ensure blue text */
+  font-weight: bold; /* Make it bold */
+}
+
+/* Remove any padding on hover for dropdown links */
+.dropdown-left ul li a:hover,
+.dropdown-right ul li a:hover {
+  padding: 0; /* Prevent hover padding */
+}
+
+/* Keyframes for wave effect */
+@keyframes waveEffect {
+  0% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Apply animation to logo */
+.navbar-left {
+  animation: waveEffect 0.6s ease-in-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0; /* Start hidden */
+}
+
+/* Apply animation to nav-links */
+.navbar-links li {
+  opacity: 0; 
+  animation: waveEffect 0.6s ease-in-out forwards;
+}
+
+/* Stagger animation for each nav-link */
+.navbar-links li:nth-child(1) {
+  animation-delay: 0.4s;
+}
+.navbar-links li:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.navbar-links li:nth-child(3) {
+  animation-delay: 0.8s;
+}
+.navbar-links li:nth-child(4) {
+  animation-delay: 1s;
+}
+.navbar-links li:nth-child(5) {
+  animation-delay: 1.2s;
+}
+
+/* Apply animation to button */
+.explore-button {
+  animation: waveEffect 0.6s ease-in-out forwards;
+  animation-delay: 1.2s;
+  opacity: 0; /* Start hidden */
+}
+
+/* Disable Animation in Dropdown Menus */
+.dropdown-menu ul,
+.dropdown-menu li {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .dropdown-menu {
+      flex-direction: column; /* Stack dropdown sections vertically on small screens */
+      align-items: center;
+  }
+
+  .dropdown-image {
+      width: 100%; /* Make the image responsive */
+      height: auto;
+  }
+}
