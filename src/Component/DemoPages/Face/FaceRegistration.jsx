@@ -74,7 +74,7 @@ function FaceRegistration() {
       return; // Stop form submission
     }
 
-    const backendURI = import.meta.env.VITE_BACKEND;
+    const backendURI = "https://visiondetectclientside-backend-d8ezgkaregg4ascv.centralindia-01.azurewebsites.net";
     // const backendUrl = `${import.meta.env.VITE_BACKEND}/register`;
     const formData = new FormData();
     
