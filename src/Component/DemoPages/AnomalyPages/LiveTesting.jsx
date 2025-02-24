@@ -3,13 +3,12 @@ import { FiArrowLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import '../../../Style/LiveTesting.css'
 
-
 function LiveTesting() {
-  let v1= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/MaskLiveUnprocessed.mp4";
-  let v2= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/peopleTestingg.mp4";
+  let v2= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/MaskLiveUnprocessed.mp4";
+  let v1= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/peopleTestingg.mp4";
   let v3= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/hairnetLive.mp4";
-  let v1Result="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/MaskLive.mp4";
-  let  v2Result="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/peopleTestingResult.mp4";
+  let v2Result="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/MaskLive.mp4";
+  let  v1Result="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/peopleTestingResult.mp4";
   let v3Result= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/hairnetLiveTested.mp4"
   const navigate = useNavigate();
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -55,7 +54,7 @@ function LiveTesting() {
             style={{ opacity: 0.8, zIndex: 50 }}
           ></div>
           <div id="submithere" className="fixed">
-            <span className='font-semibold'>Step 3:</span> After selecting the desired video to test, click on the submit button to generate results.
+            <span className='font-semibold'>Step 2:</span> After selecting the desired video to test, click on the submit button to generate results.
           </div>
         </div>
       )}
@@ -63,19 +62,22 @@ function LiveTesting() {
       <div className="relative">
         {/* Back Button */}
         <FiArrowLeft
-          className="back-button z-500000 relative text-2xl top-4 h-12 w-12 p-2 bg-white border-4 border-white text-black rounded-full left-12 cursor-pointer "
+          className="back-button z-50 relative text-2xl top-4 h-12 w-12 p-2 bg-white border-4 border-white text-black rounded-full left-12 cursor-pointer "
           onClick={handleBackClick}
         />
-        {showOverlay && (
+        {/* {showOverlay && (
           <div
             id="backbuttonarrow"
             className="fixed "
           >
             <span className='font-semibold'>Step 1:</span> Click here to go back to the homepage.
           </div>
-        )}
+        )} */}
 
         <div className="relative w-full h-[20rem] mx-auto pt-2 space-x-12">
+        <div className='text-black mt-[-1rem]  flex justify-center items-center'>
+            <p className="text-black text-2xl font-semibold">Anomaly Live Testing</p>
+          </div>
           <div className={`relative w-4/5 h-[20rem] mx-auto ${showAnalyzedVideo ? 'flex gap-x-6' : ''}`}>
             {/* Selected Video */}
             <div className={`${showAnalyzedVideo ? 'w-1/2' : 'w-full'} h-full overflow-hidden bg-cover bg-bottom bg-no-repeat rounded-[30px] transition-all duration-500`}>
@@ -142,13 +144,13 @@ function LiveTesting() {
       </div>
 
       {/* Video Thumbnails */}
-      <div className="relative flex flex-row items-center justify-center space-x-8 mt-8">
+      <div className="relative flex flex-row items-center justify-center space-x-8 mt-10">
         {showOverlay && (
           <div
             id="selectVideo"
             className="fixed "
           >
-            <span className='font-semibold'>Step 2:</span> Select a video to test it live above.
+            <span className='font-semibold'>Step 1:</span> Select a video to test it live above.
           </div>
         )}
         {[v1].map((video, index) => (

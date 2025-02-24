@@ -5,6 +5,8 @@ import sg from "../Assest/sg.webp";
 import us from "../Assest/us.webp";
 import uae from "../Assest/uae.webp";
 import ind from "../Assest/ind.webp";
+import {Link } from "react-router-dom";
+
 
 const Footer = () => {
     return (
@@ -62,10 +64,13 @@ const Footer = () => {
             </div>
 
 
-            {/* Bottom Section - Copyright */}
             <div className="footer-bottom">
                 <p>Meridian Solutions Pvt. Ltd. © 2025. All rights reserved</p>
             </div>
+            <div className="absolute bottom-8 right-4 text-sm pr-5 cursor-pointer">
+                  <Link>  <p>Privacy Policy</p></Link>
+            </div>
+
         </footer>
     );
 };

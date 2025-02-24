@@ -97,7 +97,7 @@ function FaceVerificationTrail() {
         &times;
       </button>
       {isStreaming ? (
-        <div className="absolute top-[40%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] w-72 h-72 rounded-full overflow-hidden border-4 border-white shadow-lg">
+        <div className="absolute top-[30%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] w-72 h-72 rounded-full overflow-hidden border-4 border-white shadow-lg">
           <Webcam
             ref={webcamRef}
             audio={false}
@@ -106,7 +106,7 @@ function FaceVerificationTrail() {
           />
         </div>
       ) : (
-        <div className="absolute top-[40%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] w-72 h-72 rounded-full overflow-hidden border-4 border-white shadow-lg">
+        <div className="absolute top-[30%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] w-72 h-72 rounded-full overflow-hidden border-4 border-white shadow-lg">
 
           <img
             src={capturedImage}
@@ -117,8 +117,11 @@ function FaceVerificationTrail() {
 
       )}
 
-      <div className='absolute h-50 bottom-0 left-0 w-full p-4  bg-opacity-50 flex flex-col justify-center items-center animate__animated animate__fadeInUpBig'>
+      <div className='absolute h-65 bottom-0 left-0 w-full p-4  bg-opacity-50 flex flex-col justify-center items-center animate__animated animate__fadeInUpBig'>
         <div className='flex flex-col justify-center items-center space-y-2'>
+        <div className='mt-[-1rem] my-4'>
+            <p className="text-white text-2xl font-semibold">Face Verification</p>
+          </div>
           {isStreaming ? (
             <>
               <div className='flex gap-5'>

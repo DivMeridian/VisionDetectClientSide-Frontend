@@ -184,14 +184,14 @@ function FaceRegistration() {
                       if (file) {
                         const reader = new FileReader();
                         reader.onload = () => {
-                          setCapturedImage(reader.result); 
+                          setCapturedImage(reader.result);
                         };
                         reader.readAsDataURL(file);
                       }
                     }}
                   />
                   <button
-                    onClick={() => document.getElementById('fileInput').click()} 
+                    onClick={() => document.getElementById('fileInput').click()}
                     className="px-12 py-3 text-sm bg-white text-black font-semibold rounded-2xl cursor-pointer"
                   >
                     Upload from your device
@@ -208,33 +208,61 @@ function FaceRegistration() {
         <div className='h-full w-full flex flex-col justify-center items-center relative m-auto'>
           <div className="h-50 w-50 rounded-full m-3 overflow-hidden">
             <img
-              src={capturedImage || profilephoto} 
+              src={capturedImage || profilephoto}
               className="h-full w-full object-cover"
               alt="Profile"
               required
             />
           </div>
-          <form ref={formRef} className="w-5/6 space-y-4 space-x-3 "onSubmit={handleSubmit}>
+          <div className='mt-[-1rem] my-4'>
+            <p className="text-2xl font-semibold">Face Registration</p>
+          </div>
+          <form ref={formRef} className="w-5/6 space-y-4 space-x-3 " onSubmit={handleSubmit}>
             <input
               name="name"
               type="text"
               placeholder="Enter your name"
-              className="w-full rounded-full bg-gray-200 py-2 px-4 text-gray-700 placeholder:text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
+              className="w-full rounded-full bg-gray-200 py-2 px-4 text-gray-700 placeholder:text-md placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
               required
             />
             <div className="flex gap-4">
-              <input
+              {/* <input
                 name="gender"
                 type="text"
                 placeholder="Gender"
-                className="w-1/2 rounded-full bg-gray-200 py-2 px-4 text-gray-700 placeholder:text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                className="w-1/2 rounded-full bg-gray-200 py-2 px-4 text-gray-700 placeholder:text-sm placeholder:px-4 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
                 required
-              />
+              /> */}
+             <div className="relative w-1/2">
+  <select
+    name="gender"
+    className="w-full appearance-none rounded-full bg-gray-200 text-sm py-2 px-4  text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
+    required
+  >
+    <option value="" disabled selected>Select Gender</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="other">Other</option>
+  </select>
+
+  {/* Custom Dropdown Icon on the Left */}
+  <svg
+    className="absolute left-[15rem] top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+  </svg>
+</div>
+
+
               <input
                 name="dob"
                 type="date"
                 placeholder="DD/MM/YYYY"
-                className="w-1/2 rounded-full bg-gray-200 py-2 px-4 text-gray-700 placeholder:text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                className="w-1/2 rounded-full bg-gray-200 py-2 px-4 text-gray-500 placeholder:text-md  placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
                 required
               />
             </div>
@@ -243,7 +271,7 @@ function FaceRegistration() {
               name="email"
               type="email"
               placeholder="Enter your email"
-              className="w-full rounded-full bg-gray-200 py-2 px-4 text-gray-700 placeholder:text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
+              className="w-full rounded-full bg-gray-200 py-2 px-4 text-gray-500 placeholder:text-md  placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
               required
             />
 
@@ -291,7 +319,7 @@ function FaceRegistration() {
                 name="phone"
                 type="tel"
                 placeholder="Phone Number"
-                className="flex-1 rounded-full bg-gray-200 py-2 px-4 placeholder:text-sm text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                className="flex-1 rounded-full bg-gray-200 py-2 px-4 placeholder:text-md  text-gray-500 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
                 required
               />
             </div>
@@ -307,18 +335,18 @@ function FaceRegistration() {
           </form>
           <span className="text-black font-semibold text-[20px] mt-1 absolute bottom-0 left-1/2 transform -translate-x-1/2 tracking-wide ">VisionDetect.ai</span>
           {isLoading && (
-                            <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-90 z-50">
-                                <dotlottie-player
-            src="https://lottie.host/90cd6ac4-247c-49be-aec4-a747636330cd/98GcJUMUqS.lottie   "
-            background="transparent"
-            border="2px solid black"
-            speed="1"
-            loop
-            autoplay
-            style={{ width: '40%', height: '40%' }}
-          ></dotlottie-player>
-                            </div>
-                        )}
+            <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-90 z-50">
+              <dotlottie-player
+                src="https://lottie.host/90cd6ac4-247c-49be-aec4-a747636330cd/98GcJUMUqS.lottie   "
+                background="transparent"
+                border="2px solid black"
+                speed="1"
+                loop
+                autoplay
+                style={{ width: '40%', height: '40%' }}
+              ></dotlottie-player>
+            </div>
+          )}
         </div>
       </div>
     </div>

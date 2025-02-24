@@ -19,17 +19,17 @@ const Popup = ({ togglePopup }) => {
           <h2>VisionDetect.ai</h2>
           <p>Pick one for your live demo...</p>
           <div className="popup-options">
-            <div className="option hover:scale-105 hover:text-[#133AFF] transition-all duration-200 ease-in-out cursor-pointer" onClick={() => navigate("/face-registrationTrial")}>
+            <div className="flex flex-col w-[150px] mt-2 justify-center items-center hover:scale-105 hover:text-[#133AFF] transition-all duration-200 ease-in-out cursor-pointer" onClick={() => navigate("/face-registrationTrial")}>
               <img src={Verification} alt="Face Detection" />
               <button >
                 Face Verification & Recognition
               </button>
             </div>
-            <div className="option hover:scale-105 hover:text-[#133AFF] transition-all duration-200 ease-in-out cursor-pointer" onClick={() => navigate("/AnomalyLiveTesting")}>
+            <div className="flex flex-col justify-center items-center hover:scale-105 hover:text-[#133AFF] transition-all duration-200 ease-in-out cursor-pointer" onClick={() => navigate("/AnomalyLiveTesting")}>
               <img src={anomaly} alt="Anomaly Detection" />
               <button onClick={togglePopup}>Anomaly Detection</button>
             </div>
-            <div className="option hover:scale-105 hover:text-[#133AFF] transition-all duration-200 ease-in-out cursor-pointer" onClick={() => navigate("/ANPRLiveTesting")}>
+            <div className="flex flex-col justify-center items-center hover:scale-105 hover:text-[#133AFF] transition-all duration-200 ease-in-out cursor-pointer" onClick={() => navigate("/ANPRLiveTesting")}>
               <img src={anpr} alt="License Plate Detection" />
               <button onClick={togglePopup}>ANPR Detection</button>
             </div>

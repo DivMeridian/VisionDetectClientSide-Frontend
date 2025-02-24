@@ -228,7 +228,7 @@ const Navbar = () => {
       {/* Contact Info Below Navbar */}
       <div className="contact-info">
         <p>
-          For 24/7 customised guidance and support, call us at +91 124 4429900 or email us at info@onmeridian.com.  Meridian Solutions is always here to help
+           24/7 guidance & support, Contact us at +91 124 4429900 or email us at info@onmeridian.com.  Meridian is always here to help you!
         </p>
       </div>
       {showForm && (
