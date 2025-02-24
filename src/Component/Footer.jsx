@@ -68,7 +68,8 @@ const Footer = () => {
                 <p>Meridian Solutions Pvt. Ltd. © 2025. All rights reserved</p>
             </div>
             <div className="absolute bottom-8 right-4 text-sm pr-5 cursor-pointer">
-                  <Link>  <p>Privacy Policy</p></Link>
+                  <Link>  <p onClick={() => window.open("https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/Privacy Policy for VisionDetect.pdf", "_blank")}
+                  >Privacy Policy</p></Link>
             </div>
 
         </footer>

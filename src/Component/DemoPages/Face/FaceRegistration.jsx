@@ -143,6 +143,7 @@ function FaceRegistration() {
       <button className="popup-close cursor-pointer z-100" onClick={handleCrossButton}>
         &times;
       </button>
+     
       <div className="w-1/2 h-full bg-black rounded-br-2xl">
         <div className="h-[60%] w-full">
           <video
@@ -206,6 +207,7 @@ function FaceRegistration() {
       </div>
       <div className='w-1/2 h-full'>
         <div className='h-full w-full flex flex-col justify-center items-center relative m-auto'>
+        <p className='absolute top-5 right-17 text-sm  cursor-pointer underline' onClick={() => navigate('/face-verificationTrial')} >switch to verification?</p>
           <div className="h-50 w-50 rounded-full m-3 overflow-hidden">
             <img
               src={capturedImage || profilephoto}
