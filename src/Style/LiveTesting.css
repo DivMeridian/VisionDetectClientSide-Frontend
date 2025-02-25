@@ -120,6 +120,90 @@
   background-size: contain;
 }
 
+
+
+#skipbutton {
+  position: fixed;
+  bottom: 7rem;
+  right: -9rem;
+  transform: translateX(-50%);
+  z-index: 100;
+  color: white;
+  font-size: 1.125rem; /* text-lg */
+  max-width: 250px;
+  white-space: normal;
+  padding: 1rem;
+}
+
+/* Add the arrow image above the container using ::before */
+#skipbutton::before {
+  content: "";
+  position: absolute;
+  bottom: -50%; /* positions the pseudo-element above #submithere */
+  right: 40%;
+  transform: translateX(-50%) scaleY(-1) rotate(50deg);
+  width: 80px;  /* adjust width as needed */
+  height: 80px; /* adjust height as needed */
+  background: url('../Assest/arr2.png') no-repeat center center;
+  background-size: contain;
+}
+
+
+
+#formenteries {
+  position: fixed;
+  top: 40%;
+  right: -8rem;
+  transform: translateX(-50%);
+  z-index: 100;
+  color: white;
+  font-size: 1.125rem; /* text-lg */
+  max-width: 300px;
+  white-space: normal;
+  padding: 1rem;
+}
+
+/* Add the arrow image above the container using ::before */
+#formenteries::before {
+  content: "";
+  position: absolute;
+  top: -20%; /* positions the pseudo-element above #submithere */
+  left: -20%;
+  transform: translateX(-50%);
+  width: 100px;  /* adjust width as needed */
+  height: 100px; /* adjust height as needed */
+  background: url('../Assest/arr2.png') no-repeat center center;
+  background-size: contain;
+}
+
+
+#continuebutton {
+  position: fixed;
+  bottom: 3rem;
+  right: 20rem;
+  transform: translateX(-50%);
+  z-index: 100;
+  color: white;
+  font-size: 1.125rem; /* text-lg */
+  max-width: 400px;
+  white-space: normal;
+  padding: 1rem;
+}
+
+/* Add the arrow image above the container using ::before */
+#continuebutton::before {
+  content: "";
+  position: absolute;
+  bottom: 20%; /* positions the pseudo-element above #submithere */
+  right: -20%;
+  transform: translateX(-50%) scaleX(-1);
+  width: 100px;  /* adjust width as needed */
+  height: 100px; /* adjust height as needed */
+  background: url('../Assest/arr2.png') no-repeat center center;
+  background-size: contain;
+}
+
+
 #backbuttonarrow {
   position: fixed;
   top: 8rem;
@@ -166,6 +250,33 @@
   position: absolute;
   top: 10%; 
   left: 80%;
+  transform: translateX(60%) scaleX(-1) rotate(-35deg);
+  width: 100px;  /* adjust width as needed */
+  height: 100px; /* adjust height as needed */
+  background: url('../Assest/arr2.png') no-repeat center center;
+  background-size: contain;
+}
+
+
+#CaptureButton {
+  position: fixed;
+  top: 20rem;
+  left: -9rem;
+  transform: translateX(50%);
+  z-index: 100;
+  color: white;
+  font-size: 1.125rem; /* text-lg */
+  max-width: 300px;
+  white-space: normal;
+  padding: 1rem;
+}
+
+/* Add the arrow image above the container using ::before */
+#CaptureButton::before {
+  content: "";
+  position: absolute;
+  top: 10%; 
+  left: 75%;
   transform: translateX(60%) scaleX(-1) rotate(-35deg);
   width: 100px;  /* adjust width as needed */
   height: 100px; /* adjust height as needed */

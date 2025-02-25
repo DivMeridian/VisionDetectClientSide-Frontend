@@ -5,7 +5,7 @@ import 'animate.css';
 import axios from 'axios'; // Import Axios
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-
+import '../../../Style/LiveTesting.css'
 
 
 function FaceRegistration() {
@@ -18,6 +18,8 @@ function FaceRegistration() {
   const canvasRef = useRef(null);
   const formRef = useRef(null); // Add this at the top inside your component
   const navigate = useNavigate();
+  const [showOverlay, setShowOverlay] = useState(true);
+
 
 
   // const handleDialCodeChange = (value) => {
@@ -65,7 +67,7 @@ function FaceRegistration() {
     setCapturedImage(null);
   };
 
-  const handleSubmit = async(e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent page reload
 
     if (!capturedImage) {
@@ -77,16 +79,16 @@ function FaceRegistration() {
     const backendURI = "https://visiondetectclientside-backend-d8ezgkaregg4ascv.centralindia-01.azurewebsites.net";
     // const backendUrl = `${import.meta.env.VITE_BACKEND}/register`;
     const formData = new FormData();
-    
+
 
     // Append text fields
     formData.append('name', e.target.name.value);
     formData.append('gender', e.target.gender.value);
     formData.append('dob', e.target.dob.value);
     formData.append('email', e.target.email.value);
-    formData.append('phone', e.target.phone.value); 
+    formData.append('phone', e.target.phone.value);
 
-     // Convert base64 image to Blob
+    // Convert base64 image to Blob
     if (capturedImage) {
       const blob = base64ToBlob(capturedImage, 'image/png');
       formData.append('image', blob, 'captured_image.png');
@@ -106,14 +108,14 @@ function FaceRegistration() {
         toast.success(response.data.message);
         setCapturedImage(null);
         navigate('/face-verificationTrial');
-        formRef.current.reset();    
+        formRef.current.reset();
 
       } else {
         toast.error(response.data.message);
       }
-     
 
-    } 
+
+    }
 
     catch (error) {
       console.error('Error during registration:', error);
@@ -126,11 +128,11 @@ function FaceRegistration() {
   const base64ToBlob = (base64, mimeType) => {
     const byteCharacters = atob(base64.split(',')[1]);
     const byteNumbers = new Array(byteCharacters.length);
-  
+
     for (let i = 0; i < byteCharacters.length; i++) {
       byteNumbers[i] = byteCharacters.charCodeAt(i);
     }
-  
+
     const byteArray = new Uint8Array(byteNumbers);
     return new Blob([byteArray], { type: mimeType });
   };
@@ -143,7 +145,7 @@ function FaceRegistration() {
       <button className="popup-close cursor-pointer z-100" onClick={handleCrossButton}>
         &times;
       </button>
-     
+
       <div className="w-1/2 h-full bg-black rounded-br-2xl">
         <div className="h-[60%] w-full">
           <video
@@ -158,10 +160,33 @@ function FaceRegistration() {
           {isStreaming && (
             <div className='flex flex-col justify-center items-center '>
               <div className='flex flex-col justify-center items-center space-y-3'>
+                {showOverlay && (
+                  <div>
+                    <div
+                      onClick={() => setShowOverlay(false)}
+                      className="fixed inset-0 bg-black"
+                      style={{ opacity: 0.9, zIndex: 50 }}
+                    ></div>
+                    <div id="continuebutton" className="fixed">
+                      <span className='font-semibold'>Step 3:</span> Submit Registration form
+                    </div>
+                  </div>
+                )}
+
+
+
                 <div className='flex  gap-5'>
+                  {showOverlay && (
+                    <div
+                      id="CaptureButton"
+                      className="fixed "
+                    >
+                      <span className='font-semibold'>Step 1:</span> Capture & Upload Profile
+                    </div>
+                  )}
                   <button
                     onClick={captureImage}
-                    className="px-[3.5rem] py-3 bg-white text-sm text-black font-semibold rounded-2xl cursor-pointer"
+                    className="px-[3.5rem] z-500000 py-3 bg-white text-sm text-black font-semibold rounded-2xl cursor-pointer"
                   >
                     Capture image
                   </button>
@@ -207,7 +232,7 @@ function FaceRegistration() {
       </div>
       <div className='w-1/2 h-full'>
         <div className='h-full w-full flex flex-col justify-center items-center relative m-auto'>
-        <p className='absolute top-5 right-17 text-sm  cursor-pointer underline' onClick={() => navigate('/face-verificationTrial')} >switch to verification?</p>
+          {/* <p className='absolute top-5 right-17 text-sm  cursor-pointer underline' onClick={() => navigate('/face-verificationTrial')} >switch to verification?</p> */}
           <div className="h-50 w-50 rounded-full m-3 overflow-hidden">
             <img
               src={capturedImage || profilephoto}
@@ -219,12 +244,20 @@ function FaceRegistration() {
           <div className='mt-[-1rem] my-4'>
             <p className="text-2xl font-semibold">Face Registration</p>
           </div>
-          <form ref={formRef} className="w-5/6 space-y-4 space-x-3 " onSubmit={handleSubmit}>
+          <form ref={formRef} className="w-5/6 space-y-4 space-x-3  " onSubmit={handleSubmit}>
+            {showOverlay && (
+              <div
+                id="formenteries"
+                className="fixed "
+              >
+                <span className='font-semibold'>Step 2:</span> Enter Your Details.
+              </div>
+            )}
             <input
               name="name"
               type="text"
               placeholder="Enter your name"
-              className="w-full rounded-full bg-gray-200 py-2 px-4 text-gray-700 placeholder:text-md placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
+              className="w-full rounded-full relative z-50000 bg-gray-200 py-2 px-4 text-gray-700 placeholder:text-md placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
               required
             />
             <div className="flex gap-4">
@@ -235,29 +268,29 @@ function FaceRegistration() {
                 className="w-1/2 rounded-full bg-gray-200 py-2 px-4 text-gray-700 placeholder:text-sm placeholder:px-4 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
                 required
               /> */}
-             <div className="relative w-1/2">
-  <select
-    name="gender"
-    className="w-full appearance-none rounded-full bg-gray-200 text-sm py-2 px-4  text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
-    required
-  >
-    <option value="" disabled selected>Select Gender</option>
-    <option value="male">Male</option>
-    <option value="female">Female</option>
-    <option value="other">Other</option>
-  </select>
+              <div className="relative w-1/2">
+                <select
+                  name="gender"
+                  className="w-full appearance-none rounded-full bg-gray-200 text-sm py-2 px-4  text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                  required
+                >
+                  <option value="" disabled selected>Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
 
-  {/* Custom Dropdown Icon on the Left */}
-  <svg
-    className="absolute left-[15rem] top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-  </svg>
-</div>
+                {/* Custom Dropdown Icon on the Left */}
+                <svg
+                  className="absolute left-[15rem] top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
 
 
               <input
@@ -278,45 +311,6 @@ function FaceRegistration() {
             />
 
             <div className="flex space-x-1">
-              {/* <div className="relative">
-    <button
-      className="w-full rounded-full bg-gray-200 py-3 px-2 text-gray-700 text-left focus:outline-none focus:ring-2 focus:ring-gray-400"
-      onClick={() => setShowOptions(!showOptions)}
-    >
-      {dialCode ? dialCode : 'Select Country'}
-    </button>
-    {showOptions && (
-      <div className="absolute z-10 mt-1 w-full max-h-40 overflow-y-auto bg-white rounded-lg shadow-lg">
-        <div
-          className="py-1"
-          onClick={(e) => {
-            handleDialCodeChange(e.target.value);
-            setShowOptions(false);
-          }}
-        >
-          <option value="+91">India (+91)</option>
-          <option value="+1">United States (+1)</option>
-          <option value="+44">United Kingdom (+44)</option>
-          <option value="+61">Australia (+61)</option>
-          <option value="+81">Japan (+81)</option>
-          <option value="+86">China (+86)</option>
-          <option value="+49">Germany (+49)</option>
-          <option value="+33">France (+33)</option>
-          <option value="+39">Italy (+39)</option>
-          <option value="+7">Russia (+7)</option>
-          <option value="+55">Brazil (+55)</option>
-          <option value="+27">South Africa (+27)</option>
-          <option value="+82">South Korea (+82)</option>
-          <option value="+64">New Zealand (+64)</option>
-          <option value="+34">Spain (+34)</option>
-          <option value="+31">Netherlands (+31)</option>
-          <option value="+47">Norway (+47)</option>
-          <option value="+90">Turkey (+90)</option>
-          <option value="+52">Mexico (+52)</option>
-        </div>
-      </div>
-    )}
-  </div> */}
               <input
                 name="phone"
                 type="tel"
@@ -326,13 +320,27 @@ function FaceRegistration() {
               />
             </div>
 
-            <div className='flex justify-center items-center mt-9'>
+            <div className='flex justify-center items-center mt-4'>
               <button
                 type="submit"
-                className="px-[4rem] py-4 text-sm bg-black text-white font-medium rounded-3xl cursor-pointer explore-button2"
+                className="z-5000 px-[4rem] py-4 text-sm bg-black text-white font-medium rounded-3xl cursor-pointer explore-button2"
               >
                 Continue
               </button>
+              {showOverlay && (
+                <div id="skipbutton" className="fixed">
+                  <span className='font-semibold'>Step 4:</span> Already Registered? Proceed to Face Verification
+                </div>
+
+              )}
+              <p
+                className={`text-md z-50 font-semibold cursor-pointer px-4 underline hover:scale-105 hover:font-semibold transition-all duration-200 ease-in-out ${showOverlay ? 'text-white' : 'text-black'
+                  }`}
+                onClick={() => navigate('/face-verificationTrial')}
+              >
+                Skip
+              </p>
+
             </div>
           </form>
           <span className="text-black font-semibold text-[20px] mt-1 absolute bottom-0 left-1/2 transform -translate-x-1/2 tracking-wide ">VisionDetect.ai</span>

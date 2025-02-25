@@ -3,10 +3,13 @@ import { FiArrowLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import '../../../Style/LiveTesting.css'
 
+
 function LiveTesting() {
   let v2= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/MaskLiveUnprocessed.mp4";
   let v1= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/peopleTestingg.mp4";
   let v3= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/hairnetLive.mp4";
+  let v4 = "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/livetestingmaskmain.mp4";
+  let v4Result="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/livetestingmask.mp4";
   let v2Result="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/MaskLive.mp4";
   let  v1Result="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/peopleTestingResult.mp4";
   let v3Result= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/hairnetLiveTested.mp4"
@@ -26,6 +29,8 @@ function LiveTesting() {
       resultVideo = v2Result;
     } else if (selectedVideo === v3) {
       resultVideo = v3Result;
+    }else if (selectedVideo === v4) {
+      resultVideo = v4Result;
     }
 
     if (resultVideo) {
@@ -166,7 +171,7 @@ function LiveTesting() {
             <source src={video} type="video/mp4" />
           </video>
         ))}
-        {[v2, v3].map((video, index) => (
+        {[v4, v3].map((video, index) => (
           <video
             key={index}
             onClick={() => setSelectedVideo(video)}
