@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useEffect, useRef, useState } from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import '../../../Style/LiveTesting.css'
@@ -20,6 +21,33 @@ function AnprLivetesting() {
   const [analyzedVideo, setAnalyzedVideo] = useState(null);
   const [showOverlay, setShowOverlay] = useState(true);
   const [isLoading, setLoading] = useState(false);
+  const [stream, setStream] = useState(null);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+        if (!selectedVideo) {
+          // Start webcam if no video is selected
+          navigator.mediaDevices
+            .getUserMedia({ video: true })
+            .then((stream) => {
+              setStream(stream);
+              if (videoRef.current) {
+                videoRef.current.srcObject = stream;
+              }
+            })
+            .catch((error) => {
+              console.error("Error accessing webcam:", error);
+            });
+        } else {
+          // Stop webcam if a video is selected
+          if (stream) {
+            stream.getTracks().forEach((track) => track.stop());
+            setStream(null);
+          }
+        }
+      }, [selectedVideo]);
+    
+
 
   const handleSubmit = () => {
     let resultVideo = null;
@@ -97,7 +125,12 @@ function AnprLivetesting() {
                   <source src={selectedVideo} type="video/mp4" />
                 </video>
               ) : (
-                <div className="w-full h-full bg-black"></div>
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  playsInline
+                  className="w-full h-full object-cover object-bottom"
+                />
               )}
             </div>
 
