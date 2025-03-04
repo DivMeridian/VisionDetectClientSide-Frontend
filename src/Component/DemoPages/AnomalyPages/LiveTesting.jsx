@@ -15,7 +15,7 @@ function LiveTesting() {
   let  v1Result="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/peopleTestingResult.mp4";
   let v3Result= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/hairnetLiveTested.mp4"
   const navigate = useNavigate();
-  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [selectedVideo, setSelectedVideo] = useState(v1);
   const [showAnalyzedVideo, setShowAnalyzedVideo] = useState(false);
   const [analyzedVideo, setAnalyzedVideo] = useState(null);
   const [showOverlay, setShowOverlay] = useState(true);

@@ -16,7 +16,7 @@ function AnprLivetesting() {
 
 
   const navigate = useNavigate();
-  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [selectedVideo, setSelectedVideo] = useState(v1);
   const [showAnalyzedVideo, setShowAnalyzedVideo] = useState(false);
   const [analyzedVideo, setAnalyzedVideo] = useState(null);
   const [showOverlay, setShowOverlay] = useState(true);
