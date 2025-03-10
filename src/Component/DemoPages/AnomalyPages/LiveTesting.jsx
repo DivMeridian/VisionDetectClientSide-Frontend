@@ -76,7 +76,7 @@ function LiveTesting() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative p-6">
       {/* Overlay appears on page load; clicking anywhere on it will remove it */}
       {showOverlay && (
         <div>
@@ -108,9 +108,9 @@ function LiveTesting() {
 
         <div className="relative w-full h-[20rem] mx-auto pt-2 space-x-12">
         <div className='text-black mt-[-1rem]  flex justify-center items-center'>
-            <p className="text-black text-2xl font-semibold">Anomaly Live Testing</p>
+            <p className="text-black font-semibold  md:text-[1.5rem] lg:text-[3rem]"> Anomaly Live Testing</p>
           </div>
-          <div className={`relative w-4/5 h-[20rem] mx-auto ${showAnalyzedVideo ? 'flex gap-x-6' : ''}`}>
+          <div className={`relative w-4/5 lg:h-[20rem] xl:h-[25rem] mx-auto ${showAnalyzedVideo ? 'flex gap-x-6' : ''}`}>
             {/* Selected Video */}
             <div className={`${showAnalyzedVideo ? 'w-1/2' : 'w-full'} h-full overflow-hidden bg-cover bg-bottom bg-no-repeat rounded-[30px] transition-all duration-500`}>
               {selectedVideo ? (
@@ -181,7 +181,7 @@ function LiveTesting() {
       </div>
 
       {/* Video Thumbnails */}
-      <div className="relative flex flex-row items-center justify-center space-x-8 mt-10">
+      <div className="relative flex flex-row items-center justify-center space-x-8 lg:mt-[12rem]">
         {showOverlay && (
           <div
             id="selectVideo"
@@ -219,7 +219,7 @@ function LiveTesting() {
       </div>
 
       {/* Submit Button */}
-      <div className="relative z-200 flex justify-center items-center m-2">
+      <div className="relative z-200 flex justify-center items-center lg:mt-10">
         <button
           className="bg-black border-4 border-white text-white text-base px-6 py-2 rounded-xl hover:scale-105 transition-all duration-200 ease-in-out cursor-pointer"
           onClick={handleSubmit}

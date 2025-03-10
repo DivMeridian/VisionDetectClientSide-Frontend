@@ -5,8 +5,8 @@ import 'animate.css';
 import axios from 'axios'; // Import Axios
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import '../../../Style/LiveTesting.css'
-
+import '../../../Style/LiveTesting.css';
+import firstimage from '../../../Assest/firstscreen.png';
 
 function FaceRegistration() {
 
@@ -19,6 +19,12 @@ function FaceRegistration() {
   const formRef = useRef(null); // Add this at the top inside your component
   const navigate = useNavigate();
   const [showOverlay, setShowOverlay] = useState(true);
+
+
+  // Handle removing the intro image on click
+  const handleRemoveIntroImage = () => {
+    setShowIntroImage(false);
+  };
 
 
 
@@ -146,6 +152,8 @@ function FaceRegistration() {
         &times;
       </button>
 
+      
+
       <div className="w-1/2 h-full bg-black rounded-br-2xl">
         <div className="h-[60%] w-full">
           <video
@@ -181,7 +189,7 @@ function FaceRegistration() {
                       id="CaptureButton"
                       className="fixed "
                     >
-                      <span className='font-semibold'>Step 1:</span> Capture & Upload Profile
+                      <span className='font-semibold'>Step 1:</span> Capture & Upload Profile 1
                     </div>
                   )}
                   <button
